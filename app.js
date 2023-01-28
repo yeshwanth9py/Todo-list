@@ -13,7 +13,6 @@ app.set("view engine", "ejs");
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
 mongoose.connect("mongodb+srv://yeswanth:yeswanth@cluster0.hx74iyh.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true });
 mongoose.set('strictQuery', true);
 
@@ -149,6 +148,6 @@ app.get("/about", function (req, res) {
 });
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log("server started at port 3000");
 });
